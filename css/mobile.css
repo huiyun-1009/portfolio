@@ -1,0 +1,39 @@
+@media (max-width: 450px) {
+    header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        box-shadow: 2px 2px 5px #222;
+        box-sizing: border-box;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 99;
+    }
+    header.on {
+        display: none;
+        /* background-color: aqua; */
+    }
+    header.on a {
+        color: #000;
+    }
+
+    header img {
+        width: 100px;
+    }
+    header ul {
+        display: none;
+    }
+
+    header i {
+        width: 200px;
+        font-size: 30px;
+        text-align: right;
+        cursor: pointer;
+    }
+    header i.on {
+        opacity: 0;
+    }
+}

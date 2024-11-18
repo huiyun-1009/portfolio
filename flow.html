@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body {
+                overflow-x: hidden;
+            }
+            .roll {
+                width: 100%;
+                height: 30px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 25px;
+                overflow: hidden;
+                border: 1px solid #222;
+            }
+            .roll div {
+                width: 1500px;
+                height: 30px;
+                display: flex;
+                justify-content: space-between;
+                animation: hello 40s infinite linear;
+                position: absolute;
+                left: 0px;
+            }
+            .roll > div:first-child {
+                color: blue;
+            }
+            .roll > div:last-child {
+                color: orange;
+                animation-delay: -20s;
+            }
+            .roll span {
+                margin: 0px 15px;
+            }
+            @keyframes hello {
+                0% {
+                    transform: translate(100%);
+                }
+                100% {
+                    transform: translate(-100%);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="roll">
+            <div>
+                <span>HELLO</span>
+                <span>HELLO</span>
+                <span>HELLO</span>
+                <span>HELLO</span>
+                <span>HELLO</span>
+                <span>HELLO</span>
+                <span>HELLO</span>
+                <span>HELLO</span>
+                <span>HELLO</span>
+                <span>HELLO</span>
+            </div>
+            <div>
+                <span>HELLO</span>
+                <span>HELLO</span>
+                <span>HELLO</span>
+                <span>HELLO</span>
+                <span>HELLO</span>
+                <span>HELLO</span>
+                <span>HELLO</span>
+                <span>HELLO</span>
+                <span>HELLO</span>
+                <span>HELLO</span>
+            </div>
+        </div>
+    </body>
+</html>
