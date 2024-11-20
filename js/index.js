@@ -42,14 +42,13 @@ $(function () {
 
     //scroll effect
 
-    let visual = $("#visual").offset().top;
     let con1 = $("#con1").offset().top;
     let con2 = $("#con2").offset().top;
     let con3 = $("#con3").offset().top;
     let con4 = $("#con4").offset().top;
     let footer = $("footer").offset().top;
 
-    console.log(visual, con1, con2, con3, con4, footer);
+    console.log(con1, con2, con3, con4, footer);
 
     $(window).on("scroll", function () {
         let scroll = $(this).scrollTop();
@@ -78,6 +77,18 @@ $(function () {
             }
         }
 
+        let portfolio = gsap.utils.toArray("#con2 .portfolio li");
+
+        gasp.ti(portfolio, {
+            yPercent: -100 * (portfoil.length - 2),
+            scrollTrigger: ".portfolio",
+            pin: true,
+            scrub: 2,
+            start: "center center",
+            end: "200%",
+            markers: true,
+        });
+
         gsap.timeline({
             scrollTrigger: {
                 trigger: "#con3 .ilust",
@@ -89,12 +100,12 @@ $(function () {
         })
             .to(
                 "#con3 li:nth-child(1)",
-                { y: "-400px", duration: 1, ease: "none" },
+                { y: "-200px", duration: 1, ease: "none" },
                 0.2
             )
             .to(
                 "#con3 li:nth-child(2)",
-                { y: "-400px", duration: 1, ease: "none" },
+                { y: "0px", duration: 1, ease: "none" },
                 0.4
             )
             .to(
