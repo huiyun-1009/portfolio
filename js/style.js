@@ -90,18 +90,53 @@ $(function () {
             $(".snsicon div").addClass("on");
         }
     });
+    let pin = document.querySelector("#con2 .portfolio");
     let portfolio = gsap.utils.toArray("#con2 .portfolio li");
     console.log(portfolio);
 
-    // gasp.to(portfolio, {
-    //     yPercent: -100 * (portfoil.length - 2),
-    //     scrollTrigger: ".portfolio",
-    //     pin: true,
-    //     scrub: 2,
-    //     start: "center center",
-    //     end: "200%",
-    //     markers: true,
-    // });
+    gsap.utils.toArray(".portfolio li").forEach((li, index) => {
+        const timeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: li,
+                start: "top 80%", // li가 화면에 80% 들어왔을 때 시작
+                end: "top 20%", // li가 화면의 20% 지점에 있을 때 종료
+                scrub: true, // 스크롤과 동기화
+            },
+        });
+
+        // mokup (왼쪽에서 들어오기)
+        timeline.to(
+            li.querySelector(".mokup"),
+            {
+                x: 0, // 원래 위치로 이동
+                opacity: 1, // 투명도 증가
+                duration: 1,
+            },
+            0 // 시작 시간
+        );
+
+        // project (오른쪽에서 들어오기)
+        timeline.to(
+            li.querySelector(".project"),
+            {
+                x: 0, // 원래 위치로 이동
+                opacity: 1, // 투명도 증가
+                duration: 1,
+            },
+            0 // 시작 시간
+        );
+
+        // 전체 li가 위로 올라오는 효과
+        timeline.to(
+            li,
+            {
+                y: 0, // 위로 이동 (초기 translateY 제거)
+                opacity: 1,
+                duration: 1,
+            },
+            0
+        );
+    });
 
     let list = gsap.utils.toArray(".ilust li");
 
@@ -112,7 +147,7 @@ $(function () {
             pin: true,
             scrub: 2,
             start: "center center",
-            end: "30%",
+            end: "-50%",
             markers: true,
         },
     });
