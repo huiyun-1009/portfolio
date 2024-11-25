@@ -86,16 +86,23 @@ $(function () {
             markers: true,
         },
     });
-    tl.to(txt, { opacity: "1", duration: "15" }, 100);
-    tl.to(upbox, { scale: "0.5", duration: "15", opacity: "0.5" }, 100);
+    tl.to(txt, { opacity: "1", duration: "10" }, 30);
+    tl.to(
+        upbox,
+        {
+            scale: "0.5",
+            duration: "10",
+            opacity: "0.5",
+        },
+        10
+    );
 
     // scroll
     let baseline = -200;
     let con1 = $("#con1").offset().top + baseline;
     let con2 = $("#con2").offset().top;
     let con3 = $("#con3").offset().top;
-    let con4 = $("#con4").offset().top + baseline;
-    let footer = $("footer").offset().top;
+    let con4 = $("#con4").offset().top;
 
     // console.log(con1, con2, con3, con4, footer);
 
@@ -129,64 +136,21 @@ $(function () {
 
         if (scroll >= con4) {
             $(".snsicon div").addClass("on");
+        } else {
+            $(".snsicon div").removeClass("on");
         }
     });
-    // let pin = document.querySelector("#con2 .portfolio");
-
-    // gsap.utils.toArray(".portfolio li").forEach((li, index) => {
-    //     const timeline = gsap.timeline({
-    //         scrollTrigger: {
-    //             trigger: li,
-    //             start: "top 80%", // li가 화면에 80% 들어왔을 때 시작
-    //             end: "top 20%", // li가 화면의 20% 지점에 있을 때 종료
-    //             scrub: true, // 스크롤과 동기화
-    //         },
-    //     });
-
-    //     // mokup (왼쪽에서 들어오기)
-    //     timeline.to(
-    //         li.querySelector(".mokup"),
-    //         {
-    //             x: 0, // 원래 위치로 이동
-    //             opacity: 1, // 투명도 증가
-    //             duration: 1,
-    //         },
-    //         0 // 시작 시간
-    //     );
-
-    //     // project (오른쪽에서 들어오기)
-    //     timeline.to(
-    //         li.querySelector(".project"),
-    //         {
-    //             x: 0, // 원래 위치로 이동
-    //             opacity: 1, // 투명도 증가
-    //             duration: 1,
-    //         },
-    //         0 // 시작 시간
-    //     );
-
-    //     // 전체 li가 위로 올라오는 효과
-    //     timeline.to(
-    //         li,
-    //         {
-    //             y: 0, // 위로 이동 (초기 translateY 제거)
-    //             opacity: 1,
-    //             duration: 1,
-    //         },
-    //         0
-    //     );
-    // });
 
     let list = gsap.utils.toArray(".ilust li");
 
     gsap.to(list, {
         xPercent: -100 * (list.length - 2),
         scrollTrigger: {
-            trigger: ".ilust",
+            trigger: "#con3",
             pin: true,
-            scrub: 5,
-            start: "center center",
-            end: "-55%",
+            scrub: 2,
+            start: "-150px",
+            end: "-550px",
             markers: true,
         },
     });
